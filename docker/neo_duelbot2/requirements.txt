@@ -1,0 +1,12 @@
+numpy
+pandas
+matplotlib
+retry
+ccxt
+numba
+pyyaml
+ujson
+websocket-client==0.57
+liquidtap
+websocket-server
+TA-Lib

@@ -1,0 +1,54 @@
+# config.yaml は YAML という言語で記述します。文字列も数値も "" で囲う必要はありません
+# YAML について知りたい方はこちら: https://qiita.com/Yama-to/items/587544993fb62610528a
+
+# ----------------------------------------------------------
+# 取引所で取得できる API の key, secret を記述
+# ----------------------------------------------------------
+key:
+secret:
+exchange: bitmex
+
+use_testnet: false              # TestNetを使う時 True に指定
+
+
+# ----------------------------------------------------------
+# 通知機能
+# ----------------------------------------------------------
+line_token: ''                  # line_tokenを入力。tokenの取得方法：https://qiita.com/iitenkida7/items/576a8226ba6584864d95
+discord_webhooks: ''            # discord WEBHOOK URLを入力。取得方法：https://note.mu/asim0613/n/n23073851a93c
+realtime_notify_interval: 0     # リアルタイム損益Discord通知機能の周期(秒)、通知しない場合には 0 を指定
+notify_graph: true              # グラフ通知をする場合は true を指定
+
+
+# ----------------------------------------------------------
+# ログ関連
+# ----------------------------------------------------------
+log_directory: log              # log フォルダ名を指定
+profit_directory: profit        # Profit フォルダ名を指定
+console_log_level: debug
+file_log_level: debug
+
+# ----------------------------------------------------------
+# トレードする通貨ペアの指定（指定方法はアニュアルを参照）
+# ----------------------------------------------------------
+symbol_pair: BTC/USD
+api_symbol: XBTUSD
+base_symbol: BTC
+
+
+# ----------------------------------------------------------
+# ボット基本動作の制御パラメータ
+# ----------------------------------------------------------
+retry_limits: 10                    # API リトライ回数
+retry_sleep_sec: 3                  # リトライ時の sleep wait 秒数
+loop_interval: 60                   # bot がデータを取得するループ周期を秒数で指定
+base_timeframe: 60                  # 取引所から取得するローソク足の時間軸（60,300,3600から選択）
+strategy_timeframe: 60              # strategy 内で使用するローソク足の標準時間軸。base_timeframe以上の値で60, 180, 300, 900, 1800, 2700, 3600, 7200, 10800, 14400, 21600, 43200, 86400から選択
+candle_array_size: 50               # 変数で保持するローソク足の配列サイズを指定。ロジック内で使う最大期間 * ロジック内で使う最大足時間軸 / strategy_timeframe で値算出
+
+adjust_price: -1                    # ベスト価格を計算する時の指値幅を指定（例：指値 Long で ask から -1 で指値するなら -1 を指定する）
+order_timeout: 60                   # オープンな注文の寿命を秒数で指定。これ過ぎたら価格調整、その3倍過ぎたら注文破棄する。機能無効化したい場合は 0 を指定
+
+enable_auto_adjust_price: true      # 自動価格調整を無効化したい場合は false を指定
+enable_auto_dispose: true           # 自動で古い注文を破棄する機能を無効化するときには false を指定
+enable_waiting_for_promised: true   # オープンな注文があるときは約定するまで次の注文は受け付けない場合は true を指定(通常モード)

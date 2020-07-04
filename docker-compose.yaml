@@ -1,0 +1,52 @@
+version: '3.4'
+
+volumes:
+  influxdb-data:
+
+services:
+
+  neo_duelbot2:
+    build: docker/neo_duelbot2
+    environment:
+      - ACCESS_KEY=${ACCESS_KEY}
+      - SECLET_KEY=${SECLET_KEY}
+      - WEBHOOK_URL=${WEBHOOK_URL}
+    volumes:
+      - ./work/:/work
+      - ./neo_duelbot2-strategy:/my-strategy
+
+  bfs-x:
+    build: docker/bfs-x
+    environment:
+      - ACCESS_KEY=${ACCESS_KEY}
+      - SECLET_KEY=${SECLET_KEY}
+      - WEBHOOK_URL=${WEBHOOK_URL}
+    depends_on:
+      - pos-server
+      - grafana
+    volumes:
+      - ./work/:/work
+      - ./bfsx-strategy:/my-strategy
+
+  pos-server:
+    build: docker/bfs-x
+    environment:
+      - ACCESS_KEY=${ACCESS_KEY}
+      - SECLET_KEY=${SECLET_KEY}
+      - WEBHOOK_URL=${WEBHOOK_URL}
+    entrypoint: "/entrypoint-pos-server.sh"
+
+  influxdb:
+    image: influxdb:latest
+    volumes:
+      - influxdb-data:/var/lib/influxdb
+
+  grafana:
+    image: grafana/grafana:latest
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./grafana/dashboards:/etc/grafana/provisioning/dashboards
+      - ./grafana/datasources:/etc/grafana/provisioning/datasources
+    depends_on:
+      - influxdb
