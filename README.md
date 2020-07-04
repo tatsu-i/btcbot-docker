@@ -12,7 +12,7 @@ Cloud9で動作するポジション自炊・ロジック切替・高頻度・�
 https://note.com/inagobot/n/n597cdf2a7fe6
 
 ## Docker 環境の準備について
-導入手順は下記を参考にLinux上でdocker-composeが動作する環境をご用意ください。
+導入手順は下記を参考にLinux上でdocker-composeが動作する環境をご用意ください。  
 http://docs.docker.jp/compose/install.html
 
 ## 使い方
