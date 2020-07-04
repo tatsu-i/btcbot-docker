@@ -8,7 +8,7 @@
 https://note.com/kunmosky1/n/n112b73eee4f0
 
 ## NeoDuelBot
-Cloud9で動作するポジション自炊・ロジック切替・高頻度・バックテスト可能な BitMEX/Bybit/Liquid 対応の BOT フレームワーク NeoDuelBot（ロジック多数付属） 
+Cloud9で動作するポジション自炊・ロジック切替・高頻度・バックテスト可能な BitMEX/Bybit/Liquid 対応の BOT フレームワーク NeoDuelBot（ロジック多数付属）  
 https://note.com/inagobot/n/n597cdf2a7fe6
 
 ## Docker 環境の準備について
