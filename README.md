@@ -18,16 +18,20 @@ http://docs.docker.jp/compose/install.html
 ## 使い方
 
 ### BFS-X
-
-コンテナのビルド
+ソースコードを展開します
+```bash
+$ unzip BFS-X_VNNN_NNNNNNNN.zip -d ./docker/bfs-x/
+```
+コンテナのビルドします
 ```bash
 $ docker-compose build bfs-x pos-server
 ```
-コンテナの起動
+ビルドが完了したらコンテナの起動します。  
+ソースコードがアップデートされたら同様の手順でソースコードを展開しビルドを行ってください。
 ```bash
 $ docker-compose up -d bfs-x pos-server
 ```
-コンテナへのアタッチ
+起動が完了したらコンテナへアタッチします
 ```bash
 $ docker-compose exec -it bfs-x bash
 ```
@@ -45,9 +49,16 @@ drwxrwxr-x 2 root root  4096 Jun 15 13:53 strategy
 ```
 
 ### Neoduelbot
-
-コンテナのビルド
+ソースコードを展開します。  
+ユーザ名とパスワードを入力します。  
 ```bash
+$ cd ./docker/neo_duelbot2
+$ ./init.sh
+```
+ビルドが完了したらコンテナの起動します。  
+ソースコードがアップデートされたら同様の手順でソースコードを展開しビルドを行ってください。  
+```bash
+$ cd ../../
 $ docker-compose build neo_duelbot2
 ```
 コンテナの起動
