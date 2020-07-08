@@ -44,7 +44,7 @@ pos_server_discord_bitflyer_color : true
 adjust_max_size : 0.5                # ポジズレの補正時に最大何btcの補正を行うか（大きくずれた際に一度に補正しないように）
 pos_server_log_folder : /work/pos_server/      # ポジションサーバーのログ出力先フォルダ
 
-#pos_server_discord_influxdb : ['localhost', 8086] # InfluxDBへ損益を登録する場合にはコメントアウトしてください。
+pos_server_discord_influxdb : ['influxdb', 8086] # InfluxDBへ損益を登録する場合にはコメントアウトしてください。
 
 # ----------------------------------------------------------
 # ノートレード期間の指定。開始時刻と終了時刻

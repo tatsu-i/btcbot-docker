@@ -35,11 +35,15 @@ services:
       - SECLET_KEY=${SECLET_KEY}
       - WEBHOOK_URL=${WEBHOOK_URL}
     entrypoint: "/entrypoint-pos-server.sh"
+    volumes:
+      - ./work/:/work
 
   influxdb:
     image: influxdb:latest
     volumes:
       - influxdb-data:/var/lib/influxdb
+    environment:
+      - INFLUXDB_DB=bots
 
   grafana:
     image: grafana/grafana:latest
